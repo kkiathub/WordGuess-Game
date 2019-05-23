@@ -1,0 +1,23 @@
+#header {
+    background-image: url("../images/star.jpg");
+}
+
+#content {
+    background-image: url("../images/stage.jpg");
+
+      /* Full height */
+    height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    color: white;
+
+}
+
+#boxLeft, #boxRight {
+    border: 5px solid red;
+    margin: 20px;
+    padding: 20px;
+}
