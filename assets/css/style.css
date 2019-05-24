@@ -1,23 +1,46 @@
-#header {
-    background-image: url("../images/star.jpg");
+body {
+  background-image: url("../images/aurora.jpg");
+  color: white;
 }
 
 #content {
-    background-image: url("../images/stage.jpg");
+}
 
-      /* Full height */
-    height: 100%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-    color: white;
-
+#img-head {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 5px solid lightskyblue;
 }
 
 #boxLeft, #boxRight {
     border: 5px solid red;
-    margin: 20px;
+    margin: 20px 10px;
     padding: 20px;
+}
+
+.left-head {
+  margin: 0px 10px;
+}
+
+#boxLeft {
+  height: 280px;
+}
+
+#btn-start {
+  margin-top: -6px;
+  margin-left: 10px;
+  
+}
+
+#currentWord, #lettersPicked {
+  letter-spacing: 5px;
+  font-size: 24px;
+}
+
+#lettersPicked {
+  color: lightgreen;
+}
+
+#img-win {
+  width: 60%;
 }

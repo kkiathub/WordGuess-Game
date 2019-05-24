@@ -1,4 +1,5 @@
 const MAX_GUESSES = 12;
+var gValidChar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 var game = {
 
@@ -9,41 +10,99 @@ var game = {
     wordShown: "",
 
     displayWord: function() {
-        document.getElementById("currentWord").textContent = this.wordShown;
+        document.getElementById("textWins").textContent         = this.numWins;
+        document.getElementById("textNumGuesses").textContent   = this.numGuesses;
+        document.getElementById("currentWord").textContent      = this.wordShown;
+        document.getElementById("lettersPicked").textContent    = this.letterPicked;
     },
 
     newWord: function() {
         this.numGuesses     = MAX_GUESSES;
         this.letterPicked   = [];
         this.wordShown      = "";
-        this.wordId         = Math.floor(Math.random() * words.length);
-        for(var i=0; i<words[this.wordId].title.length; i++) {
-            this.wordShown += "_";
+        this.wordId         = Math.floor(Math.random() * gWords.length);
+        for(var i=0; i<gWords[this.wordId].title.length; i++) {
+            if (gWords[this.wordId].title[i] === " ") {
+                this.wordShown += " ";
+            } else {
+                this.wordShown += "_";
+            }
         }
         this.displayWord();
     },
 
-     verifyLetter: function(letter) {
+    newGame: function() {
+        this.numWins = 0;
+        this.newWord();
+    },
+
+    revealInfo: function() {
+        var selected = gWords[this.wordId];
+        console.log(selected.img);
+        document.getElementById("img-win").setAttribute("src", gImgPath + selected.img);
+    },
+
+    letterAlreadyPicked: function(letter) {
+        for(var i=0; i<this.letterPicked.length; i++) {
+            if (letter.toUpperCase() === this.letterPicked[i].toUpperCase()) {
+                return true;
+            }
+        }
+        return false;
+    },
+
+    isValidChar: function(letter) {
+        var n = gValidChar.indexOf(letter);
+        return n >= 0;
+    },
+
+    wordCompleted: function() {
+        if (this.wordShown === gWords[this.wordId].title) {
+            return true;
+        }
+        return false;
+    },
+
+    verifyLetter: function(letter) {
         var found       = false;
-        var word        = words[this.wordId].title;
+        var word        = gWords[this.wordId].title;
         var tempWord    = "";
 
-        for(i=0; i<word.length; i++) {
+        if (!this.isValidChar(letter)) {
+            return;
+        }
+
+        if (this.letterAlreadyPicked(letter)) {
+            // play sound
+            return;
+        }
+
+        for(var i=0; i<word.length; i++) {
             if (letter.toUpperCase() === word[i].toUpperCase()) {
                 console.log(this.wordShown);
                 tempWord += word[i];
-                console.log("got it : " + word[i] + " " + this.wordShown[i]);
                 found = true;
             }
             else {
                 tempWord += this.wordShown[i];
             }
-         }
+        }
 
-         if (found) {
+        if (found) {
             this.wordShown = tempWord;
-            game.displayWord();
-         }
+            if  (this.wordCompleted()) {
+                this.revealInfo();
+                this.numWins++;
+                this.newWord();
+            }
+        } else {
+            this.numGuesses--;
+            this.letterPicked.push(letter);
+            if (this.numGuesses<1) {
+                this.newWord();
+            }
+        }
+        this.displayWord();
     }
 
 };
@@ -55,8 +114,8 @@ document.onkeyup = function(event) {
 
     game.verifyLetter(userKey);
 }
-console.log(words.length);
-console.log("start " + game.wordId);
-game.newWord();
-console.log("ready " + game.wordId + " " + words[game.wordId].title);
+
+$("#btn-start").on("click", function() {
+    game.newGame();
+});
 

@@ -5,30 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word Guess</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+    <!-- Homemade css -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div id="header">
-        <div class="mx-auto" style="width: 520px;">
-            <img src="assets/images/hollywood.jpg" alt="Hello Hollywood">
+        <div class="mx-auto" style="width: 334px;">
+            <img id="img-head" src="assets/images/hollywood.jpg" alt="Hello Hollywood">
         </div>
     </div>
     <div id="content">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div id="boxLeft">
-                        <p>press any key to start!</p>
-                        <p>wins: <span ids="textWins">0</span></p>
-                        <p>Numbers of Guesses Remaining: <span id=tetNumGuesses></span></p>
-                        <p>Letters already guesses :</p>
+                    <div class="clearfix left-head">
+                        <span class="float-left">Wins: <span id="textWins">0</span></span>
+                        <span class="float-right">Numbers of Guesses Remaining: <span id=textNumGuesses></span></span>
                     </div>
+
+                    <div id="boxLeft">
+                        <h4>Current Word</h4>
+                        <h6 id="currentWord"></h6>
+                        <br><br>
+                        <h4>Letters already guesses :</h4>
+                        <h6 id="lettersPicked"></h6>
+                    </div>
+                    <button type="button" id="btn-start" class="btn btn-primary btn-lg">Start</button>
+
                 </div>
                 <div class="col">
-                    <div id="boxLeft">
-                        <p>Current Word</p>
-                        <p id="currentWord"></p>
+                    <div id="boxRight">
+                        <img id="img-win" src="assets/images/stargazer.jpg" alt="Hollywood">
+ 
                     </div>
                 </div>
             </div>
