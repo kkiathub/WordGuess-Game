@@ -16,11 +16,19 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <audio id="snd-beep">
+        <source src="assets/audio/sound100.wav" type="audio/wav">
+    </audio>
+    <audio id="snd-selected" autoplay loop>
+            <source id="snd-name" type="audio/mp3" src="assets/audio/ff9.mp3">
+    </audio>
+
     <div id="header">
         <div class="mx-auto" style="width: 334px;">
-            <img id="img-head" src="assets/images/hollywood.jpg" alt="Hello Hollywood">
+            <img id="img-head" src="assets/images/hollywood.jpg" alt="Hello Hollywood" class="rounded-pill">
         </div>
     </div>
+
     <div id="content">
         <div class="container">
             <div class="row">
@@ -30,20 +38,36 @@
                         <span class="float-right">Numbers of Guesses Remaining: <span id=textNumGuesses></span></span>
                     </div>
 
-                    <div id="boxLeft">
+                    <div id="box-left">
                         <h4>Current Word</h4>
                         <h6 id="currentWord"></h6>
                         <br><br>
                         <h4>Letters already guesses :</h4>
                         <h6 id="lettersPicked"></h6>
+                        <h5 id="text-hint"></h5>
                     </div>
                     <button type="button" id="btn-start" class="btn btn-primary btn-lg">Start</button>
-
+                    <button type="button" id="btn-hint" class="btn btn-primary btn-lg">Hint</button>
+                    <span id="text-help"></span>
                 </div>
                 <div class="col">
-                    <div id="boxRight">
-                        <img id="img-win" src="assets/images/stargazer.jpg" alt="Hollywood">
- 
+                    <div class="card mb-3" id="box-content">
+                        <div class="row no-gutters">
+                            <div class="col-md-6">
+                                <img id="img-content" src="assets/images/stargazer.jpg" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-6" id="box-content-text">
+                                <div class="card-body text-content">
+                                    <h5 class="card-title">Starry night!</h5>
+                                    <p class="card-text">Never give up hope!</p>
+                                </div>
+                                <div class="card-footer bg-transparent" id="foot-content">🎵
+                                    <a href="#" class="btn btn-primary btn-replay">Replay</a>
+                                    <a href="#" class="btn btn-primary btn-play">Play</a>
+                                    <a href="#" class="btn btn-primary btn-stop">Stop</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

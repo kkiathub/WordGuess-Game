@@ -12,24 +12,49 @@ body {
   border: 5px solid lightskyblue;
 }
 
-#boxLeft, #boxRight {
-    border: 5px solid red;
+#box-left {
+    border: 5px solid orange;
     margin: 20px 10px;
     padding: 20px;
+    height: 280px;
+    position: relative;
+}
+
+#text-hint {
+  position: absolute;
+  bottom: 5px;
+  color: yellowgreen;  
+  font-style: italic;
 }
 
 .left-head {
   margin: 0px 10px;
 }
 
-#boxLeft {
-  height: 280px;
+#text-help {
+  margin: 20px;
+}
+
+#box-content {
+  color: black;
+}
+
+#box-content-text {
+  position: relative;
+}
+
+#foot-content {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.btn {
+  margin-top: -6px;
 }
 
 #btn-start {
-  margin-top: -6px;
   margin-left: 10px;
-  
 }
 
 #currentWord, #lettersPicked {
@@ -41,6 +66,11 @@ body {
   color: lightgreen;
 }
 
-#img-win {
-  width: 60%;
+#img-content {
+  width: 200px;
+  margin: auto;
+}
+
+#text-content {
+  height: 80%;
 }
