@@ -8,12 +8,39 @@ var game = {
     letterPicked: [],
     wordId: -1,
     wordShown: "",
+    actorShown: 0,
 
     displayWord: function() {
         document.getElementById("textWins").textContent         = this.numWins;
         document.getElementById("textNumGuesses").textContent   = this.numGuesses;
         document.getElementById("currentWord").textContent      = this.wordShown;
         document.getElementById("lettersPicked").textContent    = this.letterPicked;
+    },
+
+    hideActors: function() {
+        this.actorShown = 0;
+        $(".actors-box").hide();
+        $("#actor-1").hide();
+        $("#actor-2").hide();
+        $("#actor-3").hide();
+        $("#actor-4").hide();
+    },
+
+    showNextActor: function() {
+        if (this.actorShown>3) {
+            return false;
+        }
+        if (this.actorShown==0) {
+            $(".actors-box").show();
+        }
+        var actorIndex = gWords[this.wordId].actors[this.actorShown];
+        var actor = actorList.properties[actorIndex];
+        this.actorShown++;
+
+        $("#actor-" + this.actorShown).show();
+        document.getElementById("aimg"+this.actorShown).setAttribute("src", gImgPath+actor.image);
+        document.getElementById("aname"+this.actorShown).textContent = actor.name;
+        return true;
     },
 
     newWord: function() {
@@ -35,6 +62,7 @@ var game = {
             }
         }
         this.displayWord();
+        this.hideActors();
         $("#text-hint").text("");
     },
 
@@ -152,8 +180,28 @@ $("#btn-hint").on("click", function() {
     if (game.wordId<0) {
         return;
     }
-
+    if (game.numGuesses<=1) {
+        return;
+    }
+    game.numGuesses--;
+    document.getElementById("textNumGuesses").textContent   = game.numGuesses;
     $("#text-hint").text(gWords[game.wordId].hint);
+});
+
+$("#btn-actor").on("click", function() {
+    if (game.wordId<0) {
+        return;
+    }
+
+    if (game.numGuesses<=1) {
+        return;
+    }
+
+    if (game.showNextActor()) {
+        game.numGuesses--;
+        document.getElementById("textNumGuesses").textContent   = game.numGuesses;
+    }
+
 });
 
 $(".btn-replay").on("click", function() {
@@ -171,3 +219,5 @@ $(".btn-stop").on("click", function() {
     var audio = document.getElementById("snd-selected");
     audio.pause();
 });
+
+game.hideActors();
