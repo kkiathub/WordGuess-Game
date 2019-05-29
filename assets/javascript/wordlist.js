@@ -33,6 +33,23 @@ const actorList = {
     BRUCEWILLIS: 22,
     BILLYBOBTHORNTON: 23,
 
+    CARYELWES: 24,
+    ANDRETHEGIANT: 25,
+    MANDYPATINKIN: 26,
+
+    QUENTINTARANTINO: 27,
+    UMATHURMAN: 28,
+
+    RAMIMALEK: 29,
+    JOSEPHMAZZELLO: 30,
+    BENHARDY: 31,
+    AARONMCCUSKER: 32,
+
+    BRADLEYCOOPER: 33,
+    LADYGAGA: 34,
+    SAMELLIOTT: 35,
+    ANTHONYRAMOS: 36,
+
     properties: [
         {name: "Tom Hanks", image: "tomhanks.jpg"}, // Forest Gump
         {name: "Robin Wright", image: "robinwright.jpg"},
@@ -58,6 +75,19 @@ const actorList = {
         {name: "Ben Affleck", image: "benaffleck.jpg"},
         {name: "Bruce Willis", image: "brucewillis.jpg"},
         {name: "Billy Bob Thornton", image: "billybobthornton.jpg"},
+        {name: "Cary Elwes", image: "caryelwes.jpg"}, // Princess Bride
+        {name: "Andre The Giant", image: "andrethegiant.jpg"},
+        {name: "Mandy Patinkin", image: "mandypatinkin.jpg"},
+        {name: "Quentin Tarantino", image: "quentintarantino.jpg"}, // pulp fiction
+        {name: "Uma Thurman", image: "umathurman.jpg"},
+        {name: "Rami Malek", image: "ramimalek.jpg"}, // Bohemian Rhapsody
+        {name: "Joseph Mazzello", image: "josephmazzello.jpg"}, 
+        {name: "Ben Hardy", image: "benhardy.jpg"}, 
+        {name: "Aaron Mccusker", image: "aaronmccusker.jpg"}, 
+        {name: "Bradley Cooper", image: "bradleycooper.jpg"}, // A star is born
+        {name: "Lady Gaga", image: "ladygaga.jpg"}, 
+        {name: "Sam Elliott", image: "samelliott.jpg"},
+        {name: "Anthony Ramos", image: "anthonyramos.jpg"}
     ]
 }
 
@@ -90,11 +120,30 @@ var gWords = [
         img:"lion.jpg", music:"lion.mp3",
         actors:[actorList.NATHANLANE, actorList.MATHEWBRODERICK, actorList.JEREMYIRONS, actorList.WHOOPIGOLDBERG] },
 
-
     { title:"Armageddon",
         detail:"1993 - Adventure", hint:"Meteor is coming to earth!",
         img:"armageddon.jpg", music:"armageddon.mp3",
         actors:[actorList.LIVTYLER, actorList.BENAFFLECK, actorList.BRUCEWILLIS, actorList.BILLYBOBTHORNTON] },
+    
+    { title:"The Princess Bride",
+        detail:"1987 - Fantasy/Romance", hint:"When I was your age, television was called books.!",
+        img:"armageddon.jpg", music:"princessbride.mp3",
+        actors:[actorList.CARYELWES, actorList.ROBINWRIGHT, actorList.ANDRETHEGIANT, actorList.MANDYPATINKIN] },
+        
+    { title:"Pulp Fiction",
+        detail:"1993 - Adventure", hint:"Any time of the day is a good time for pie.",
+        img:"pulpfiction.jpg", music:"pulpfiction.mp3",
+        actors:[actorList.QUENTINTARANTINO, actorList.UMATHURMAN, actorList.JOHNTRAVOLTA, actorList.SAMUALLJACKSON] },
+
+    { title:"Bohemian Rhapsody",
+        detail:"1993 - Adventure", hint:"I'm just a musical prostitute, my dear.",
+        img:"bohemian.jpg", music:"bohemian.mp3",
+        actors:[actorList.RAMIMALEK, actorList.JOSEPHMAZZELLO, actorList.BENHARDY, actorList.AARONMCCUSKER] },
+
+    { title:"A Star Is Born",
+        detail:"1993 - Adventure", hint:"I just wanted to take another look at you.",
+        img:"starisborn.jpg", music:"starisborn.mp3",
+        actors:[actorList.BRADLEYCOOPER, actorList.LADYGAGA, actorList.SAMELLIOTT, actorList.ANTHONYRAMOS] },
 
 ];
 
